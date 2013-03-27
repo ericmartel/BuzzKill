@@ -1,4 +1,21 @@
-﻿using System;
+﻿/*
+ * Copyright (c) 2013 Eric Martel <emartel@gmail.com> http://www.ericmartel.com
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+   and associated documentation files (the "Software"), to deal in the Software without restriction,
+   including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+   subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+   LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices;
@@ -31,10 +48,12 @@ namespace EricMartel.BuzzKill
     // This attribute is used to register the informations needed to show the this package
     // in the Help/About dialog of Visual Studio.
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
+    // This attribute makes the Extension load as soon as a Solution is Loaded
     [ProvideAutoLoad("{f1536ef8-92ec-443c-9ed7-fdadf150da82}")]
     [Guid(GuidList.guidBuzzKillPkgString)]
     public sealed class BuzzKillPackage : Package
     {
+        // Keep a pointer to the events otherwise it gets Garbage Collected and nothing happens
         private EnvDTE.DebuggerEvents mEvents;
         private static Vibration mResetVibration;
 
@@ -94,6 +113,7 @@ namespace EricMartel.BuzzKill
 
         public static void BreakHandler(dbgEventReason reason, ref dbgExecutionAction execAction)
         {
+            // UserIndex contains Users One to Four
             for (int i = 0; i < 4; ++i)
             {
                 Controller controller = new Controller((UserIndex)i);
