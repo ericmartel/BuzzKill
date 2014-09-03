@@ -4,7 +4,7 @@ This Visual Studio Extension goes through the 4 possible Game Controllers (using
 
 ## Install
 
-Simply open the `BuzzKill.vsix` file and it should install the Extension to your available Visual Studio installations.
+Simply open the `BuzzKill.vsix` file and it should install the Extension to all of your available Visual Studio installations.
 
 ## Disable / Remove
 
@@ -12,13 +12,9 @@ From Visual Studio, open `Tools > Extension Manager...` and locate `Buzz Kill`. 
 
 ## Build and Dependencies
 
-The Extension is using [SlimDX](http://slimdx.org/) to reset the rumble. I did not provide all the files to build a VSPackage, only the most important one. If you need to modify it for some reason and build a complete VSPackage, you will need the [VSPackage Builder Extension](http://visualstudiogallery.msdn.microsoft.com/e9f40a57-3c9a-4d61-b3ec-1640c59549b3) and the [Visual Studio 2010 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=2680). If you are using SP1, you will need the [Visual Studio 2010 SP1 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=21835).
+The Extension is using [SlimDX](http://slimdx.org/) to reset the rumble. I did not provide all the files to build a VSPackage, only the most important one. If you need to modify it for some reason and build a complete VSPackage. Depending on your version of Visual Studio, you might need the [VSPackage Builder Extension](http://visualstudiogallery.msdn.microsoft.com/e9f40a57-3c9a-4d61-b3ec-1640c59549b3) and the appropriate Visual Studio SDK for your version.
 
-I did not try the Extension under 2012.
-
-# Donations
-
-If the Extension is useful to you, consider [buying me a beer ;)](http://www.ericmartel.com/buzz-kill/)
+The Extension should work on all versions of Visual Studio 2010, 2012 and 2013.
 
 # License
 

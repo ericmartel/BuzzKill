@@ -117,7 +117,7 @@ namespace EricMartel.BuzzKill
             for (int i = 0; i < 4; ++i)
             {
                 Controller controller = new Controller((UserIndex)i);
-                if (controller != null)
+                if (controller != null && controller.IsConnected)
                 {
                     controller.SetVibration(mResetVibration);
                 }
